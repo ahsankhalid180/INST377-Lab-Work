@@ -25,8 +25,7 @@ function updateSlidePosition() {
 });
 
   console.log(slidePosition);
-  slides[slidePosition].classList.add('visible');
-}
+  slides[slidePosition].classList.add('visible');}
 
 function moveToNextSlide() {
   /*
