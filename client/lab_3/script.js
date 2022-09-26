@@ -22,10 +22,11 @@ function updateSlidePosition() {
   slidesArray.forEach((slide) => {
     slides.classList.remove('visible');
     slides.classList.add('hidden');
-});
+  });
 
   console.log(slidePosition);
-  slides[slidePosition].classList.add('visible');}
+  slides[slidePosition].classList.add('visible');
+}
 
 function moveToNextSlide() {
   /*
@@ -39,8 +40,9 @@ function moveToNextSlide() {
   } else {
     slidePosition += 1;
   }
-
   updateSlidePosition(); // this is how you call a function within a function
+}
+
 function moveToPrevSlide() {
   // add your code in here for when you click the "prev" button
   /*
@@ -50,20 +52,19 @@ function moveToPrevSlide() {
     if not, set the slidePosition to the current position minus one
   */
   updateSlidePosition();
+  // document.querySelector('.prev') 
+  //   .addEventListener('click', () => {
+  //     console.log('clicked prev');
+  //     moveToPrevSlide();
+  //   });
 }
 
 /*
-  These two functions have been assigned via "addEventListener"
-  to the elements accessed by the "querySelector" set to the class name on each
+These two functions have been assigned via "addEventListener"
+to the elements accessed by the "querySelector" set to the class name on each
 */
 document.querySelector('.next') // Get the appropriate element (<button class="next">)
   .addEventListener('click', () => { // set an event listener on it - when it's clicked, do this callback function
     console.log('clicked next'); // let's tell the client console we made it to this point in the script
     moveToNextSlide(); // call the function above to handle this
-  });
-
-document.querySelector('.prev')
-  .addEventListener('click', () => {
-    console.log('clicked prev');
-    moveToPrevSlide();
   });
