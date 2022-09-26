@@ -52,7 +52,7 @@ function moveToPrevSlide() {
     if not, set the slidePosition to the current position minus one
   */
   updateSlidePosition();
-  // document.querySelector('.prev') 
+  // document.querySelector('.prev')
   //   .addEventListener('click', () => {
   //     console.log('clicked prev');
   //     moveToPrevSlide();
