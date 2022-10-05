@@ -267,6 +267,7 @@ div.carousel {
 
 .prev:hover,
 .next:hover {
+  color: #000080;
   /* Pick a good background colour for your hover pseudoclass */
 }
 
