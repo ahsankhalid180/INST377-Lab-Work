@@ -116,7 +116,7 @@ function getRandomIntInclusive(min, max) {
       Dot notation is preferred in JS unless you have a good reason to use brackets
       The 'data' key, which we set at line 38 in foodServiceRoutes.js, contains all 1,000 records we need
     */
-    console.table(arrayFromJson.data);
+   // console.table(arrayFromJson.data);
   
     // in your browser console, try expanding this object to see what fields are available to work with
     // for example: arrayFromJson.data[0].name, etc
@@ -126,10 +126,8 @@ function getRandomIntInclusive(min, max) {
     console.log(`${arrayFromJson.data[0].name} ${arrayFromJson.data[0].category}`);
   
     // This IF statement ensures we can't do anything if we don't have information yet
-    if (arrayFromJson.data?.length) { return; } 
-
-    
-      submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
+    if (arrayFromJson.data?.length > 0) { return; } 
+    submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
   
       loadAnimation.classList.remove('lds-ellipsis');
       loadAnimation.classList.add('lds-ellipsis_hidden');
