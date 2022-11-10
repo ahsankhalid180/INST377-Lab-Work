@@ -1,16 +1,3 @@
-/* eslint-disable max-len */
-
-/*
-  Hook this script to index.html
-  by adding `<script src="script.js">` just before your closing `</body>` tag
-*/
-
-/*
-  ## Utility Functions
-    Under this comment place any utility functions you need - like an inclusive random number selector
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-*/
-
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -19,7 +6,7 @@ function getRandomIntInclusive(min, max) {
   
   function injectHTML(list) {
     console.log('fired injectHTML');
-    const target = document.querySelector("#restaurent_list");
+    const target = document.querySelector("restaurent_list");
     target.innerHTML = '';
   
     const listEl = document.createElement('ol');
@@ -29,21 +16,6 @@ function getRandomIntInclusive(min, max) {
       el.innerText = item.name;
       listEl.appendChild(el);
     });
-  
-    /*
-    ## JS and HTML Injection
-      There are a bunch of methods to inject text or HTML into a document using JS
-      Mainly, they're considered "unsafe" because they can spoof a page pretty easily
-      But they're useful for starting to understand how websites work
-      the usual ones are element.innerText and element.innerHTML
-      Here's an article on the differences if you want to know more:
-      https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext
-  
-    ## What to do in this function
-      - Accept a list of restaurant objects
-      - using a .forEach method, inject a list element into your index.html for every element in the list
-      - Display the name of that restaurant and what category of food it is
-  */
   }
   
   function processRestaurants(list) {
@@ -107,8 +79,14 @@ function getRandomIntInclusive(min, max) {
       This next line goes to the request for 'GET' in the file at /server/routes/foodServiceRoutes.js
       It's at about line 27 - go have a look and see what we're retrieving and sending back.
      */
-    const results = await fetch('/api/foodServicePG');
-    const arrayFromJson = await results.json(); // here is where we get the data from our request as JSON
+    const formData = new FormData(submitEvent.target);
+    const formProps = Object.fromEntries(formData);
+
+
+    const fetchQuery = new Uint8ClampedArray(formProps);
+    const results = await fetch (`/api/foodServicePG?${fetchQuery}`);
+    //const results = await fetch('/api/foodServicePG');
+    //const arrayFromJson = await results.json(); // here is where we get the data from our request as JSON
   
     /*
       Below this comment, we log out a table of all the results using "dot notation"
