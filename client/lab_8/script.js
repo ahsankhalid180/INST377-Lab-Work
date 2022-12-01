@@ -1,7 +1,7 @@
 function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    const newMin = Math.ceil(min);
+    const newMax = Math.floor(max);
+    return Math.floor(Math.random() * (newMax - newMin + 1) + newMin); // The maximum is inclusive and the minimum is inclusive
   }
   
   function injectHTML(list) {
@@ -97,7 +97,8 @@ function getRandomIntInclusive(min, max) {
         Dot notation is preferred in JS unless you have a good reason to use brackets
         The 'data' key, which we set at line 38 in foodServiceRoutes.js, contains all 1,000 records we need
       */
-    console.table(arrayFromJson.data);
+    console.log('Test PG County Set')
+    console.table(arrayFromJson);
   
     // in your browser console, try expanding this object to see what fields are available to work with
     // for example: arrayFromJson.data[0].name, etc
@@ -130,7 +131,6 @@ function getRandomIntInclusive(min, max) {
   
         // This constant will have the value of your 15-restaurant collection when it processes
         currentList = processRestaurants(arrayFromJson.data);
-        console.log(currentList);
         // And this function call will perform the "side effect" of injecting the HTML list for you
         injectHTML(currentList);
   
